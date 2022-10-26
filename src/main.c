@@ -31,8 +31,7 @@ int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,
     prevMainInstance = prevInstance;
     pCmdLine = _pCmdLine;
     //ConsoleShowing = _ConsoleShowing;
-    ConsoleShowing = 0;
-    
+    ConsoleShowing = 0;    
     //Default info for the application is set here
     SetDefaults();
 

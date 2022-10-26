@@ -14,6 +14,7 @@ BOOL wasPressed(int keyNum){
         //key[keyNum].wasPressed=0;
         return 0;
     }
+    
 }
 
 void *InputThreadFunc(void *vargp){
