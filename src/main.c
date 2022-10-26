@@ -57,6 +57,7 @@ int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,
         TranslateMessage(&MainWinMsg);
         DispatchMessage(&MainWinMsg);
     }
+    
     _exit(0);   
 }
 
