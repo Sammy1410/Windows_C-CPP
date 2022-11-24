@@ -6,14 +6,18 @@
 
 LRESULT CALLBACK MainHandleMsg(HWND _MainHandle,UINT uMsg,WPARAM wParam,LPARAM lparam){
     switch(uMsg){
-      case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-      case WM_CLOSE:
-      case WM_QUIT:
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        case WM_KEYDOWN:
+        case WM_CHAR:
+            printf("Key Pressed: %c\n",lparam);
+            break;
+        case WM_CLOSE:
+        case WM_QUIT:
         _exit(0);
     }
-    return DefWindowProc(_MainHandle,uMsg, wParam, lparam);
+    return DefWindowProcW(_MainHandle,uMsg, wParam, lparam);
 }
 
 

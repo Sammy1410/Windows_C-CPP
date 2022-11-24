@@ -1,6 +1,7 @@
 #ifndef WINDOW_H_INCLUDED
 #define WINDOW_H_INCLUDED
 
+#include <essentials.h>
 #include <screen/window.h>
 
 #ifdef __cplusplus

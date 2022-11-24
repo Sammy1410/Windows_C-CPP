@@ -1,5 +1,5 @@
 #include <essentials.h>
-#include <input.h>
+#include <input/input.h>
 #include <extern.h>
 
 extern HWND MainHandle;

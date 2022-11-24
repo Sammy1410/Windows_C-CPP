@@ -2,6 +2,7 @@
 #define UNICODE
 #endif
 
+
 #include <essentials.h>
 #include <WinAPI.h>
 #include <files.h>
@@ -9,6 +10,7 @@
 #include <extern.h>
 
 
+#include <screen/colors.h>
 
 #include "inline/default.c"
 /*
@@ -24,7 +26,7 @@
 
 int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,int _ConsoleShowing){
     //Threads needed are defined    
-    pthread_t GraphicsThread,WorkThread,InputThread;
+    pthread_t GraphicsThread,WorkThread,InputThread,ArduinoThread;
 
     //The value of main Window are global so it is sent from these local variables in WinMain
     MainInstance = thisInstance;
@@ -34,9 +36,8 @@ int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,
     ConsoleShowing = 0;    
     //Default info for the application is set here
     SetDefaults();
-
     int checkWindow;
-    
+  
     err_logs=fopen(".\\logs\\error_logs.txt","a");
     msg_logs=fopen(".\\logs\\message_logs.txt","a");
     //msg_logs=fopen("./logs/message_logs.txt","w");
@@ -46,6 +47,7 @@ int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,
     //Threads initialized and connected to respective main functions
     pthread_create(&GraphicsThread,NULL,GraphicsUpdater,NULL);
     pthread_create(&WorkThread,NULL,WorkerThread,NULL);
+    pthread_create(&ArduinoThread,NULL,ArduinoThreadFunc,NULL);
     //pthread_create(&InputThread,NULL,InputThreadFunc,NULL);
 
     checkWindow=_InitializeWindow(thisInstance,_ConsoleShowing);
@@ -55,6 +57,7 @@ int WINAPI WinMain(HINSTANCE thisInstance,HINSTANCE prevInstance,PSTR _pCmdLine,
         Sleep(1);
         TranslateMessage(&MainWinMsg);
         DispatchMessage(&MainWinMsg);
+
     }
     _exit(0);   
 }

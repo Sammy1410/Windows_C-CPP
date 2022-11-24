@@ -45,4 +45,9 @@
         extern uint32_t *WinBuffer;
     #endif
 
+    #ifndef ARDUINO_H_INCLUDED
+        extern char Tx;
+        extern BOOL ArduinoInitialized;
+    #endif
+
 #endif

@@ -10,6 +10,7 @@ extern "C" {
     void *WorkerThread(void *vargp);
     void *GraphicsUpdater(void *vargp);
     void *InputThreadFunc(void *vargp);
+    void *ArduinoThreadFunc(void *vargp);
 
     int _InitializeWindow(HINSTANCE _thisInstance,int _ConsoleShowing);
     LRESULT CALLBACK MainHandleMsg(HWND _MainHandle,UINT uMsg,WPARAM wParam,LPARAM lparam);

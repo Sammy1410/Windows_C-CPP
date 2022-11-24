@@ -8,4 +8,5 @@ int SetDefaults(){
     window.height=720;
 
     return 0;
+    
 }

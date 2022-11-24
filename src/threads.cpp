@@ -29,7 +29,7 @@ void *WorkerThread(void *vargp){
         if(screenEnable){
             Circle_Create(C);
             //CanvasDraw(10,10,best);
-            PushText(L"LED 1",175,230,25,10,defFont,bestT);
+            PushText(L"LED 13",175,230,25,10,defFont,bestT);
         }    
         //Frame Update Message Generator
         loop_end=clock();
